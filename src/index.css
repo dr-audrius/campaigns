@@ -1,0 +1,92 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+/* Page header styling */
+
+@media only screen and (max-width: 667px) {
+  #container {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  #a {
+    display: flex;
+    justify-content: center;
+
+  }
+  
+  #b {
+    display: flex;
+    justify-content: center
+  }
+}
+
+
+@media only screen and (min-width: 668px) {
+  #container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+  }
+
+  #a {
+    
+    display: flex;
+    width: 70%; 
+    align-items: center;
+
+  }
+  
+  #b {
+    width: 30%;
+  
+  }
+}
+
+
+.am-image {
+  max-width:100%;
+  max-height:100%;
+}
+
+/* Campaign styling START */
+
+.post {
+  width: 80%;
+  margin: auto;
+}
+
+#campaigns th {
+  background-color: #4CAF50;
+  color: white;
+  border-radius: unset;
+}
+
+#campaigns thead tr {
+  padding: 0 0 0 0;
+}
+
+
+#campaigns tr:nth-child(even){background-color: #f5f5f5; }
+#campaigns tr:hover {background-color: #C8FDD3;}
+
+
+.Active {
+  color: green;
+  margin-right: 5px;
+}
+
+.Inactive {
+  color: red;
+  margin-right: 5px;
+}
+
+.transperant {
+  opacity: 0;
+}
+
+.space {
+  margin-left: 5px;
+}
