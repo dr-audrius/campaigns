@@ -58,6 +58,13 @@ body {
   margin: auto;
 }
 
+/* had to override :before pseudoelement "content" property of materialized library because of adding weird space */
+@media only screen and (max-width: 992px) {
+  table.responsive-table thead tr th::before {
+      content: unset !important;
+  }
+}
+
 #campaigns th {
   background-color: #4CAF50;
   color: white;

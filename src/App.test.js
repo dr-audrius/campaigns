@@ -1,8 +1,11 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { shallow } from 'enzyme';
 import App from './App';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
+describe('App component', () => {
+  it('h3 tag contains text - Campaigns list', () => {
+    const wrapper = shallow(<App />);
+    const text = wrapper.find('h3').text();
+    expect(text).toEqual('Campaigns list');
+  });
 });

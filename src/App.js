@@ -7,6 +7,9 @@ import logo from "./images/logo.png";
 import 'materialize-css';
 import 'materialize-css/dist/css/materialize.min.css';
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const invertDirection = {
   asc: "desc",
   desc: "asc"
@@ -41,6 +44,10 @@ class App extends Component {
         });
         this.concat()
       })
+      .catch(error => {
+        console.log(error.message);
+        this.notifyError(error.message);
+      })
   }
 
   concat = () => {
@@ -56,7 +63,6 @@ class App extends Component {
 
     const { campaigns } = this.state
     const { users } = this.state
-    console.log("typeof users", typeof users)
     const { currentDate } = this.state
     var { concatCampaigns } = this.state
 
@@ -75,6 +81,9 @@ class App extends Component {
         //checking if current date is inside campaign interval
         let active = (currentDate > start && currentDate < end) ? "Active" : "Inactive"
 
+        // If the endDate is before the start date, the campaign should not be shown.
+        end > start ? (
+
         concatCampaigns.push({
           "id": campaign.id,
           "name": campaign.name,
@@ -82,8 +91,11 @@ class App extends Component {
           "startDate": campaign.startDate,
           "endDate": campaign.endDate,
           "active": active,
-          "Budget": this.nFormatter(campaign.Budget, 2),
-        });
+          "Budget": this.nFormatter(campaign.Budget, 0)
+        })
+        ) : (
+           this.notify("Campaign ", campaign.name, " ending date is before starting date. Therefore not included in the table.")
+        )
       }
       )
     this.setState({
@@ -122,6 +134,23 @@ handleSort = columnName => {
     }));
   }
 
+  notify = (info1, info2, info3) => {
+    var res = info1.concat(info2, info3);
+    toast.success(res, {
+      position: toast.POSITION.BOTTOM_RIGHT,
+      autoClose: false,
+      className: 'foo-bar'
+    });
+  };
+
+  notifyError = (info) => {
+    toast.error(info, {
+      position: toast.POSITION.TOP_CENTER,
+      autoClose: false,
+      className: 'foo-bar'
+    });
+  };
+
 render() {
 
     return (
@@ -155,6 +184,7 @@ render() {
               { name: "Budget", prop: "Budget" }
             ]}
           />
+          <ToastContainer />
         </div>
     );
   }

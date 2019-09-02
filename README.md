@@ -18,9 +18,9 @@ Requirements
 
 Bonus points
 
-    Unit test(s)
+    Unit test(s) - Setup done for test yet only one simple test launched 
     Usage of React - Done
-    Error handling and loading progress indication
+    Error handling and loading progress indication  - Error handling if API call with errors and notifications added.
     Ability to sort columns - Done (Fix needed: sorting with date column)
 
 Application Requirements
@@ -34,4 +34,4 @@ The application should be a simple page with the following elements:
     A flag to state if the Campaign is active (a campaign is running when the current date is inside the start-end date range) - Done
     The Budget (in USD dollar) - Done
     User name (can be Unknown user, if the user's data is missing for specified userId) - Done
-    If the endDate is before the start date, the campaign should not be shown.
+    If the endDate is before the start date, the campaign should not be shown. - Done

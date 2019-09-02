@@ -39,6 +39,7 @@ export default ({
 
     <table className="responsive-table" id='campaigns'>
       <thead>
+        <tr>
         {header.map((x, i) => (
           <th key={`thc-${i}`}>
             <div onClick={() => handleSort(x.prop)}>
@@ -54,6 +55,7 @@ export default ({
             </div>
           </th>
         ))}
+        </tr>
       </thead>
       <tbody>
         {data.map((x, i) =>
