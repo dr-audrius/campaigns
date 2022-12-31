@@ -5,7 +5,7 @@
   "devDependencies": {
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-15": "^1.4.0",
-    "react-scripts": "1.0.10",
+    "react-scripts": "5.0.1",
     "react-test-renderer": "^15.6.2"
   },
   "dependencies": {
